@@ -133,6 +133,18 @@ def enable_high_dpi():
 
 enable_high_dpi()
 
+# Set AppUserModelID so Windows Taskbar displays custom DefenXis icon instead of generic Python/Tk feather
+def setup_windows_app_id():
+    if sys.platform == "win32":
+        try:
+            import ctypes
+            myappid = "defenxis.sentinel.identity.protection.v1"
+            ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+        except Exception:
+            pass
+
+setup_windows_app_id()
+
 
 def is_admin() -> bool:
     """Returns True if current process has Administrator privileges."""
@@ -847,9 +859,12 @@ class DefenderGUIApp:
         png_path = get_asset_path("icon.png")
         if os.path.exists(ico_path):
             try:
-                self.root.iconbitmap(ico_path)
-            except Exception as e:
-                log.debug(f"Failed setting iconbitmap: {e}")
+                self.root.iconbitmap(default=ico_path)
+            except Exception:
+                try:
+                    self.root.iconbitmap(ico_path)
+                except Exception as e:
+                    log.debug(f"Failed setting iconbitmap: {e}")
         if os.path.exists(png_path):
             try:
                 self._app_icon_img = ImageTk.PhotoImage(Image.open(png_path))
@@ -1300,6 +1315,7 @@ def main():
 
     # Desktop GUI Mode
     try:
+        setup_windows_app_id()
         root = tk.Tk()
         app = DefenderGUIApp(root, sender, start_minimized=args.minimized)
         root.mainloop()
