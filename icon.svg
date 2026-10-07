@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgGlow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#0e172e" />
+      <stop offset="70%" stop-color="#070a14" />
+      <stop offset="100%" stop-color="#030408" />
+    </radialGradient>
+
+    <!-- Border Glow Gradient -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+
+    <!-- Lightning Bolt Primary Gradient -->
+    <linearGradient id="boltGrad" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="25%" stop-color="#00f2fe" />
+      <stop offset="70%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+
+    <!-- Lightning Bolt Dark Shading -->
+    <linearGradient id="boltShadow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#4338ca" />
+    </linearGradient>
+
+    <!-- Network Wave Ring Gradient -->
+    <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0.1" />
+    </linearGradient>
+  </defs>
+
+  <!-- 1. Squircle Base Container -->
+  <rect x="16" y="16" width="480" height="480" rx="112" ry="112" fill="url(#bgGlow)" stroke="url(#borderGrad)" stroke-width="12" />
+
+  <!-- 2. Inner Neon Shield Ring -->
+  <rect x="36" y="36" width="440" height="440" rx="92" ry="92" fill="none" stroke="#00f2fe" stroke-width="2" stroke-opacity="0.25" stroke-dasharray="8 6" />
+
+  <!-- 3. Network Bandwidth Shaping Waves (Radar / Pulses) -->
+  <circle cx="256" cy="256" r="190" fill="none" stroke="url(#waveGrad)" stroke-width="3" stroke-dasharray="16 12" opacity="0.4" />
+  <circle cx="256" cy="256" r="140" fill="none" stroke="url(#waveGrad)" stroke-width="4" stroke-dasharray="12 8" opacity="0.5" />
+  <circle cx="256" cy="256" r="90" fill="none" stroke="#00f2fe" stroke-width="2" opacity="0.3" />
+
+  <!-- 4. Speed / Shaper Ticks -->
+  <path d="M 120 180 A 160 160 0 0 1 392 180" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 18" opacity="0.6" />
+  <path d="M 140 360 A 150 150 0 0 0 372 360" fill="none" stroke="#6366f1" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 18" opacity="0.5" />
+
+  <!-- 5. Under-Glow Aura for Lightning -->
+  <path d="M 284 64 L 156 256 L 252 256 L 220 448 L 364 224 L 268 224 Z" fill="#00f2fe" opacity="0.25" />
+
+  <!-- 6. Shadow / Depth Layer for Bolt -->
+  <path d="M 288 68 L 160 260 L 256 260 L 224 452 L 368 228 L 272 228 Z" fill="url(#boltShadow)" opacity="0.8" />
+
+  <!-- 7. Main Electric Cyan Razor Lightning Bolt -->
+  <path d="M 280 60 L 150 252 L 250 252 L 216 444 L 362 220 L 264 220 Z" fill="url(#boltGrad)" />
+
+  <!-- 8. Core High-Gloss Glass Highlight -->
+  <path d="M 276 76 L 175 240 L 254 240 L 230 400 L 338 228 L 266 228 Z" fill="#ffffff" opacity="0.35" />
+
+  <!-- 9. Neon Core Spark Center -->
+  <polygon points="256,236 270,248 256,260 242,248" fill="#ffffff" opacity="0.9" />
+</svg>

@@ -1,0 +1,15 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyInstaller build artifacts
+build/
+dist/
+
+# System / Temporary files
+.DS_Store
+Thumbs.db
+*.tmp
+.vscode/
+.idea/
